@@ -1,0 +1,21 @@
+name: Using Input with Environment variables while running jobs
+on: 
+  workflow_dispatch:
+    inputs:
+      userAge:
+        description: "User Age"
+        required: true
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      USER_NAME: Animesh
+      PASSWORD: prabhu@#$%
+      AGE: ${{ inputs.userAge }}
+    steps:
+      - name: Print user_name environment variable
+        run: echo "The user name is ${{env.USER_NAME}}"
+      - name: Print password environment variable
+        run: echo "The password is ${{env.PASSWORD}}"
+      - name: Print Age environment variable
+        run: echo "The age is ${{env.AGE}}"

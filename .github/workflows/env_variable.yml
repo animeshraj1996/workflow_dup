@@ -1,0 +1,13 @@
+name: Using Environment variables while running jobs
+on: workflow_dispatch
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      USER_NAME: Animesh
+      PASSWORD: prabhu@#$%
+    steps:
+      - name: Print user_name environment variable
+        run: echo "The user name is ${{env.USER_NAME}}"
+      - name: Print password environment variable
+        run: echo "The password is ${{env.PASSWORD}}"
